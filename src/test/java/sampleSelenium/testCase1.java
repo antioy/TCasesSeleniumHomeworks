@@ -11,7 +11,11 @@ public class testCase1 {
     public static void main(String[] args) {
 
 
+<<<<<<< HEAD
         System.setProperty(("webdriver.chrome.driver", "C:\\Users\\tsank\\Downloads\\driversChrome" );
+=======
+        System.setProperty(("webdriver.chrome.driver"), "C:\\Users\\tsank\\Downloads\\driversChrome" );
+>>>>>>> 5945d7f (Initial commit)
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.edna.bg/");
         driver.manage().window().maximize();
