@@ -1,27 +1,37 @@
 package sampleSelenium;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class testCaseSelenium {
+public class TestCaseSelenium {
+
+    public static WebDriver driver;
+    static String path = System.getProperty("user.dir");
 
     public static void main(String[] args) {
+        @BeforeTest
+        public void SetDriver(){
+        System.setProperty("webdriver.chrome.driver", path + "/src/test/resources/drivers/chromedriver.exe");
 
-
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\tsank\\IntelliJ IDEA Community Edition 2023.1.2\\TCasesSelenium\\src\\test\\resources\\drivers\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://www.edna.bg/");
+        driver = new ChromeDriver();
+        // Chrome is Version 118.0.5993.71 (Official Build) (64-bit)
         driver.manage().window().maximize();
-        driver.findElement(By.xpath("//button[@name='Стани автор']")).click();
-        driver.findElement(By.xpath("//input[@name='search']")).sendKeys("блабла");
-        WebElement elem1 = driver.findElement(By.linkText("Най-нови"));
-        elem1.click();
 
+        @Test
+        public void verifyTitle() {
+        ц
+        String ActualTitle = driver.getTitle();
+        String ExpectedTitle = " Vsichko v jivota na edna jena"
+        Assert.assertEquals(ActualTitle, ExpectedTitle);
+        System.out.println("Assert passed");
+        }
+
+
+
+        @AfterTest
+        public void closedriver(){
+    //closes the browser instance
+        driver.close();
     }
 }
-
-
-
